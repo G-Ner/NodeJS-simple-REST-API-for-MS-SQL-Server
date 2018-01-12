@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "NodeJS simple REST API for MS SQL Server",
+  "version": "",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mssql": "^4.1.0"
+  }
+}
