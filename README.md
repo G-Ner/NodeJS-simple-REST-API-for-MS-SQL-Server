@@ -7,3 +7,10 @@ Returning results in JSON format.
 [Express](https://www.npmjs.com/package/express)
 
 [mssql](https://www.npmjs.com/package/mssql)
+
+[async](https://www.npmjs.com/package/async)
+
+# Installation
+Requires Node.js Node 7.6 or newer.
+
+    npm install
