@@ -4,7 +4,7 @@ var app = express();
 var sql = require('mssql');
 
 // Connection string parameters.
-var config = {
+var sqlConfig = {
     user: 'UserName',
     password: 'Password',
     server: 'MS SQL server',
