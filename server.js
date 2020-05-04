@@ -5,10 +5,10 @@ var sql = require('mssql');
 
 // Connection string parameters.
 var sqlConfig = {
-    user: 'UserName',
-    password: 'Password',
-    server: 'MS SQL server',
-    database: 'Database'
+    user: 'cycle46',
+    password: 'Vision2020',
+    server: 'cycle46.database.windows.net',
+    database: 'c46usf'
 }
 
 // Start server and listen on http://localhost:8000/
