@@ -14,7 +14,7 @@ var sqlConfig = {
 // Start server and listen on http://localhost:8000/
 var server = app.listen(8000, function () {
 
-    var host = server.address().address
+    var host = server.address(8080).address
     var port = server.address().port
 
     console.log("Server listening at http://%s:%s", host, port)
@@ -43,16 +43,31 @@ async function execute(query) {
 }
 
 // Get query that return data from orders table
-app.get('/orders', function (req, res) {
-    execute('SELECT * FROM Orders;')
+app.get('/customers', function (req, res) {
+    execute('SELECT * FROM ECustomers;')
         .then(function(value) {
             res.end(JSON.stringify(value)); // Result in JSON format
         });
 })
 
 // Get query with where
-app.get('/orders/:orderId/', function (req, res) {
-    execute('SELECT * FROM Orders WHERE orderId = ' + req.params.orderId)
+app.get('/customers/:cid/', function (req, res) {
+    execute('SELECT * FROM ECustomers WHERE CustomerID = ' + req.params.cid)
+        .then(function(value) {
+            res.end(JSON.stringify(value)); // Result in JSON format
+        });
+})
+
+app.get('/customers/orders/:cid', function (req, res) {
+    execute('SELECT * FROM EOrders WHERE CustID = ' + req.params.cid)
+        .then(function(value) {
+            res.end(JSON.stringify(value)); // Result in JSON format
+        });
+})
+
+// Get query with where
+app.get('/orders/:oid/', function (req, res) {
+    execute('SELECT * FROM EOrders WHERE OrderID - ' + req.params.oid)
         .then(function(value) {
             res.end(JSON.stringify(value)); // Result in JSON format
         });
